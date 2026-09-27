@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f7f5ef" />
+<title>bonjour. — Learn French beautifully</title>
+<meta name="description" content="A beautiful, interactive French learning experience." />
+<style>
+  :root{
+    --ink:#151515;--muted:#6d6a63;--paper:#f7f5ef;--card:rgba(255,255,255,.78);
+    --line:rgba(20,20,20,.09);--blue:#335cff;--blue2:#7790ff;--cream:#ece7dd;--green:#2f8f62;
+    --shadow:0 24px 70px rgba(28,26,20,.10);
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);background:
+    radial-gradient(circle at 8% 4%,#fff 0 15%,transparent 40%),
+    radial-gradient(circle at 88% 20%,#e9edff 0 8%,transparent 32%),
+    linear-gradient(180deg,#fbfaf6 0%,#f4f1e9 100%);
+    font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+  button{font:inherit}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+  nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:Georgia,serif;font-size:29px;letter-spacing:-1.1px}
+  .brand i{font-style:normal;color:var(--blue)}
+  .navlinks{display:flex;gap:28px;align-items:center;font-size:14px}
+  .navlinks a{color:inherit;text-decoration:none;opacity:.67}
+  .pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:11px 16px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:58px;align-items:center;padding:72px 0 68px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.6)}
+  .dot{width:7px;height:7px;border-radius:50%;background:#2c9d68;box-shadow:0 0 0 5px #dff3e9}
+  h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(58px,8vw,104px);line-height:.91;letter-spacing:-5px;margin:24px 0 22px}
+  h1 span{font-style:italic;color:var(--blue)}
+  .lead{font-size:19px;line-height:1.62;color:var(--muted);max-width:610px}
+  .hero-actions{display:flex;gap:12px;margin-top:30px}
+  .primary{border:0;border-radius:15px;padding:15px 19px;background:var(--ink);color:#fff;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.14)}
+  .secondary{border:1px solid var(--line);border-radius:15px;padding:15px 19px;background:#fff;cursor:pointer}
+  .micro{font-size:12px;color:#8a877f;margin-top:14px}
+  .phone{background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.88);border-radius:34px;padding:18px;box-shadow:var(--shadow);transform:rotate(1deg);backdrop-filter:blur(16px)}
+  .phone-inner{border-radius:24px;background:#fff;min-height:540px;padding:24px;border:1px solid var(--line)}
+  .status{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#777}
+  .streak{padding:7px 10px;background:#fff3df;border-radius:999px;color:#a65b00}
+  .lesson-head{margin-top:42px}
+  .tiny{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#918d85}
+  .lesson-head h3{font-family:Georgia,serif;font-size:35px;margin:8px 0 8px;font-weight:500}
+  .lesson-head p{margin:0;color:#777;font-size:14px}
+  .phrase{margin:30px 0 18px;padding:22px;border-radius:20px;background:#f5f6ff;border:1px solid #e6e9ff}
+  .phrase strong{font-family:Georgia,serif;font-size:31px;font-weight:500;display:block}
+  .phrase small{color:#6d6b76;display:block;margin-top:6px}
+  .speak{margin-top:14px;border:0;background:#202020;color:white;border-radius:999px;padding:9px 12px;cursor:pointer;font-size:13px}
+  .choices{display:grid;gap:9px}
+  .choice{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 15px;text-align:left;cursor:pointer;transition:.2s}
+  .choice:hover{transform:translateY(-2px);border-color:#b8c2ff}
+  .choice.correct{background:#e8f7ef;border-color:#a6d5bd;color:#206546}
+  .choice.wrong{background:#fff0ef;border-color:#f0b7b2}
+  .progress{height:7px;background:#eceae4;border-radius:999px;overflow:hidden;margin-top:25px}
+  .progress span{display:block;height:100%;width:34%;background:linear-gradient(90deg,var(--blue),var(--blue2));border-radius:999px;transition:.45s}
+  .progress-row{display:flex;justify-content:space-between;font-size:11px;color:#8c8880;margin-top:8px}
+  .section{padding:82px 0}.section-title{max-width:700px}
+  .section-title h2{font-family:Georgia,serif;font-size:clamp(42px,5vw,66px);font-weight:500;letter-spacing:-2.4px;line-height:1.02;margin:10px 0}
+  .section-title p{color:var(--muted);line-height:1.6;font-size:17px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+  .card{background:var(--card);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:26px;min-height:250px;box-shadow:0 16px 45px rgba(30,25,15,.05);backdrop-filter:blur(10px)}
+  .card .num{font-size:12px;color:#999}.card h3{font-family:Georgia,serif;font-size:29px;font-weight:500;margin:38px 0 10px}
+  .card p{color:#777;line-height:1.55;font-size:14px;margin:0}
+  .card.highlight{background:#1b1b1b;color:#fff}.card.highlight p{color:#bababa}.card.highlight .num{color:#888}
+  .path{display:grid;grid-template-columns:.75fr 1.25fr;gap:18px;margin-top:38px}
+  .today{background:#315dff;color:white;border-radius:26px;padding:30px;min-height:370px;display:flex;flex-direction:column;justify-content:space-between}
+  .today h3{font-family:Georgia,serif;font-weight:500;font-size:38px;margin:10px 0}.today p{color:#dce3ff;line-height:1.55}
+  .xp{font-size:56px;font-family:Georgia,serif}.xp small{font-family:Inter,sans-serif;font-size:12px;opacity:.7}
+  .modules{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .module{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px}
+  .module .icon{font-size:27px}.module h4{font-size:17px;margin:25px 0 7px}.module p{font-size:13px;color:#777;line-height:1.5;margin:0}
+  .footer{padding:75px 0 40px;border-top:1px solid var(--line);margin-top:70px;display:flex;justify-content:space-between;align-items:flex-end}
+  .footer strong{font-family:Georgia,serif;font-size:44px;font-weight:500}.footer p{color:#777;font-size:13px}
+  #toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,120px);background:#151515;color:white;padding:12px 17px;border-radius:999px;font-size:13px;transition:.3s;z-index:5;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+  #toast.show{transform:translate(-50%,0)}
+  @media(max-width:850px){
+    .hero{grid-template-columns:1fr;padding-top:35px}.phone{transform:none}.grid3,.path{grid-template-columns:1fr}.modules{grid-template-columns:1fr 1fr}
+    .navlinks a{display:none}h1{letter-spacing:-3px}.footer{align-items:flex-start;gap:30px;flex-direction:column}
+  }
+  @media(max-width:520px){.modules{grid-template-columns:1fr}.hero-actions{flex-direction:column}.phone-inner{min-height:0}.navlinks .pill{display:block}h1{font-size:58px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="brand">bonjour<i>.</i></div>
+    <div class="navlinks">
+      <a href="#method">Method</a><a href="#path">Daily path</a><a href="#practice">Practice</a>
+      <button class="pill" onclick="document.getElementById('practice').scrollIntoView()">Start learning</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> A calmer way to learn French</div>
+        <h1>French that<br><span>stays with you.</span></h1>
+        <p class="lead">Short daily lessons, real phrases, and pronunciation you can actually use. No endless grammar walls. Just a beautiful little habit that gets you speaking.</p>
+        <div class="hero-actions">
+          <button class="primary" onclick="document.getElementById('practice').scrollIntoView()">Try today's lesson →</button>
+          <button class="secondary" onclick="speakFrench('Bonjour, enchanté. Je suis ravi de vous rencontrer.')">Hear French 🔊</button>
+        </div>
+        <div class="micro">5 minutes a day · beginner friendly · works in your browser</div>
+      </div>
+
+      <div class="phone" id="practice">
+        <div class="phone-inner">
+          <div class="status"><span>Lesson 04</span><span class="streak">🔥 7 day streak</span></div>
+          <div class="lesson-head">
+            <div class="tiny">Everyday French</div>
+            <h3>Meeting someone</h3>
+            <p>Choose the meaning of the phrase.</p>
+          </div>
+          <div class="phrase">
+            <strong>Enchanté.</strong>
+            <small>/ɑ̃.ʃɑ̃.te/</small>
+            <button class="speak" onclick="speakFrench('Enchanté')">▶ Pronounce</button>
+          </div>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,false)">See you tomorrow</button>
+            <button class="choice" onclick="answer(this,true)">Nice to meet you</button>
+            <button class="choice" onclick="answer(this,false)">Excuse me</button>
+          </div>
+          <div class="progress"><span id="bar"></span></div>
+          <div class="progress-row"><span id="step">2 of 6</span><span id="xp">+0 XP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="section-title">
+        <div class="tiny">The method</div>
+        <h2>Learn the language you’ll actually say.</h2>
+        <p>Built around conversation, memory, and tiny daily wins. You learn the phrase, hear it, use it, then meet it again before your brain decides to throw it away.</p>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <span class="num">01 · LISTEN</span>
+          <h3>Train your ear first.</h3>
+          <p>Native French pronunciation is attached to every useful phrase. Listen before you overthink the spelling.</p>
+        </article>
+        <article class="card highlight">
+          <span class="num">02 · SPEAK</span>
+          <h3>Useful from day one.</h3>
+          <p>Coffee shops, introductions, directions, travel, friends. Start with conversations you can picture yourself having.</p>
+        </article>
+        <article class="card">
+          <span class="num">03 · REMEMBER</span>
+          <h3>Review at the right moment.</h3>
+          <p>Smart repetition brings words back just before they fade, so your practice stays small while your vocabulary keeps growing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="path">
+      <div class="section-title">
+        <div class="tiny">Your daily path</div>
+        <h2>A little French, every day.</h2>
+        <p>No intimidating syllabus. Open the app, follow the path, leave knowing something you can say out loud.</p>
+      </div>
+      <div class="path">
+        <div class="today">
+          <div>
+            <div class="tiny" style="color:#cbd5ff">TODAY · 5 MIN</div>
+            <h3>At the café</h3>
+            <p>Order politely, ask for the bill, and survive the terrifying moment when the waiter answers in French.</p>
+          </div>
+          <div class="xp">+40 <small>XP</small></div>
+        </div>
+        <div class="modules">
+          <div class="module"><div class="icon">🎧</div><h4>Listening</h4><p>Catch real words at natural speed.</p></div>
+          <div class="module"><div class="icon">💬</div><h4>Speaking</h4><p>Build confidence one phrase at a time.</p></div>
+          <div class="module"><div class="icon">🧠</div><h4>Recall</h4><p>Flashcards that adapt to your memory.</p></div>
+          <div class="module"><div class="icon">✍️</div><h4>Writing</h4><p>Turn vocabulary into sentences of your own.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="tiny">Mini phrasebook</div>
+        <h2>Three phrases worth stealing.</h2>
+      </div>
+      <div class="grid3">
+        <article class="card" onclick="speakFrench('Un café, s\'il vous plaît')" style="cursor:pointer">
+          <span class="num">TAP TO HEAR ↗</span><h3>Un café, s’il vous plaît.</h3><p>A coffee, please.</p>
+        </article>
+        <article class="card" onclick="speakFrench('Ça marche')" style="cursor:pointer">
+          <span class="num">TAP TO HEAR ↗</span><h3>Ça marche.</h3><p>That works / Sounds good.</p>
+        </article>
+        <article class="card" onclick="speakFrench('À tout à l\'heure')" style="cursor:pointer">
+          <span class="num">TAP TO HEAR ↗</span><h3>À tout à l’heure.</h3><p>See you later.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>bonjour.</strong><p>French, without the homework energy.</p></div>
+    <p>Designed for curious humans · 2026</p>
+  </footer>
+</div>
+<div id="toast">Correct · +10 XP</div>
+
+<script>
+let solved=false;
+function answer(el,correct){
+  if(solved) return;
+  document.querySelectorAll('.choice').forEach(b=>b.classList.remove('correct','wrong'));
+  if(correct){
+    solved=true; el.classList.add('correct');
+    document.getElementById('bar').style.width='50%';
+    document.getElementById('step').textContent='3 of 6';
+    document.getElementById('xp').textContent='+10 XP';
+    toast('Correct · +10 XP');
+  } else {
+    el.classList.add('wrong'); toast('Almost. Try again.');
+    setTimeout(()=>el.classList.remove('wrong'),700);
+  }
+}
+function toast(t){
+  const x=document.getElementById('toast'); x.textContent=t; x.classList.add('show');
+  setTimeout(()=>x.classList.remove('show'),1500);
+}
+function speakFrench(text){
+  if(!('speechSynthesis' in window)){ toast('Audio is not supported in this browser'); return; }
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='fr-FR'; u.rate=.88;
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
