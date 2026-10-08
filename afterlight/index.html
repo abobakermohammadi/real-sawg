@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05060d">
+<meta name="description" content="AFTERLIGHT is an interactive 3D experiment about motion, matter and impossible spaces. Enter the unexpected.">
+<meta property="og:title" content="AFTERLIGHT® — An impossible website">
+<meta property="og:description" content="One world. Four dimensions. Zero ordinary pixels.">
+<meta property="og:type" content="website">
+<title>AFTERLIGHT® — Reality is optional.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="loader" aria-hidden="true"><div class="loader-mark"><span class="loader-ring"></span><span class="loader-point"></span></div><div class="load-caption">PREPARING YOUR REALITY <span id="load-number">00</span>%</div><div class="load-track"><span id="load-fill"></span></div></div>
+<div id="stage" aria-hidden="true"><div class="space-glow"></div><canvas id="universe"></canvas><div class="vignette"></div><div class="grain"></div></div>
+<header class="topbar">
+  <a class="identity" href="#origin" aria-label="Afterlight — start"><span class="identity-symbol"><i></i><i></i><i></i></span><span>AFTERLIGHT<span class="identity-reg">®</span></span></a>
+  <span class="top-center">INDEPENDENT EXPERIMENT <span class="blink"></span> 2026</span>
+  <div class="top-actions"><span class="live-tag"><span class="live-dot"></span> LIVE IN 3D</span><button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false"><span class="sound-bars"><i></i><i></i><i></i><i></i></span><span id="sound-label">SOUND OFF</span></button></div>
+</header>
+<div class="left-rail" aria-hidden="true"><span>SCROLL INTO THE UNKNOWN</span><span class="rail-line"></span><span class="rail-number">© 001 — ∞</span></div>
+<aside class="chapter-nav" aria-label="Chapter navigation"><a href="#origin" class="chapter-link current" data-chapter="0" aria-label="Chapter 01 Origin">01<span>ORIGIN</span></a><a href="#matter" class="chapter-link" data-chapter="1" aria-label="Chapter 02 Matter">02<span>MATTER</span></a><a href="#gravity" class="chapter-link" data-chapter="2" aria-label="Chapter 03 Gravity">03<span>GRAVITY</span></a><a href="#beyond" class="chapter-link" data-chapter="3" aria-label="Chapter 04 Beyond">04<span>BEYOND</span></a></aside>
+<main id="story">
+  <section class="chapter chapter-one" id="origin" data-index="0">
+    <div class="chapter-content">
+      <p class="eyebrow"><span class="line-mark"></span> AN EXPERIMENT IN THE IMPOSSIBLE <span class="eyebrow-no">01 / 04</span></p>
+      <h1>REALITY<br>IS <em>OPTIONAL.</em></h1>
+      <p class="chapter-description">Forget everything a website is supposed to be.<br>There are no rules out here. Only possibilities.</p>
+      <button class="impact-button" id="distort-button" type="button"><span class="impact-icon">✳</span> DISTORT REALITY <span class="impact-arrow">↗</span></button>
+    </div>
+    <div class="object-caption"><span class="caption-line"></span><span>FIG. 001 <b>THE LIVING SINGULARITY</b><small>MOVE YOUR CURSOR · INTERACT WITH SPACE</small></span></div>
+  </section>
+  <section class="chapter chapter-two" id="matter" data-index="1">
+    <div class="chapter-content">
+      <p class="eyebrow"><span class="line-mark"></span> NOTHING HERE IS STATIC <span class="eyebrow-no">02 / 04</span></p>
+      <h2>MATTER<br>IS A <em>MOOD.</em></h2>
+      <p class="chapter-description">Watch form surrender to feeling.<br>Every fragment moves to its own rhythm.</p>
+      <button class="text-action" id="shatter-button" type="button">TRIGGER A SUPERNOVA <span>↗</span></button>
+    </div>
+    <div class="object-caption"><span class="caption-line"></span><span>FIG. 002 <b>CONTROLLED CHAOS</b><small>NO TWO MOMENTS ARE THE SAME</small></span></div>
+  </section>
+  <section class="chapter chapter-three" id="gravity" data-index="2">
+    <div class="chapter-content">
+      <p class="eyebrow"><span class="line-mark"></span> PHYSICS HAS LEFT THE CHAT <span class="eyebrow-no">03 / 04</span></p>
+      <h2>LOSE<br>YOUR <em>GRAVITY.</em></h2>
+      <p class="chapter-description">Step past the edge of ordinary.<br>Perspective was always just a suggestion.</p>
+      <button class="text-action" id="warp-button" type="button">ENGAGE HYPERDRIVE <span>↗</span></button>
+    </div>
+    <div class="object-caption"><span class="caption-line"></span><span>FIG. 003 <b>THE EVENT HORIZON</b><small>YOU ARE NOW SOMEWHERE ELSE</small></span></div>
+  </section>
+  <section class="chapter chapter-four" id="beyond" data-index="3">
+    <div class="chapter-content">
+      <p class="eyebrow"><span class="line-mark"></span> THE END IS THE BEGINNING <span class="eyebrow-no">04 / 04</span></p>
+      <h2>STAY<br><em>UNREAL.</em></h2>
+      <p class="chapter-description">An internet with a pulse.<br>Made for the beautifully curious.</p>
+      <a class="impact-button end-button" href="#origin"><span class="impact-icon">↺</span> GO AGAIN <span class="impact-arrow">↗</span></a>
+    </div>
+    <div class="object-caption"><span class="caption-line"></span><span>FIG. 004 <b>INFINITE POSSIBILITIES</b><small>YOU'VE ONLY SEEN THE SURFACE</small></span></div>
+  </section>
+</main>
+<footer class="bottom-bar"><div class="foot-meta"><span class="crosshair">✳</span><span>THIS IS NOT A TEMPLATE.<br>THIS IS A LITTLE UNIVERSE.</span></div><div class="scroll-hint"><span class="mouse-symbol"><span></span></span> <span id="scroll-label">SCROLL TO EXPLORE</span></div><div class="foot-progress"><span class="progress-serial" id="chapter-count">01 / 04</span><div class="progress-track"><span id="progress-fill"></span></div><span class="percentage" id="percent-label">000%</span></div></footer>
+<div class="flash" id="flash" aria-hidden="true"></div>
+<div class="fallback-message" id="fallback-message" hidden>Your browser couldn't start the 3D scene. The universe still looks good in 2D, though.</div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
