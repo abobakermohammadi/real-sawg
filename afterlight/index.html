@@ -65,6 +65,16 @@
 <footer class="bottom-bar"><div class="foot-meta"><span class="crosshair">✳</span><span>THIS IS NOT A TEMPLATE.<br>THIS IS A LITTLE UNIVERSE.</span></div><div class="scroll-hint"><span class="mouse-symbol"><span></span></span> <span id="scroll-label">SCROLL TO EXPLORE</span></div><div class="foot-progress"><span class="progress-serial" id="chapter-count">01 / 04</span><div class="progress-track"><span id="progress-fill"></span></div><span class="percentage" id="percent-label">000%</span></div></footer>
 <div class="flash" id="flash" aria-hidden="true"></div>
 <div class="fallback-message" id="fallback-message" hidden>Your browser couldn't start the 3D scene. The universe still looks good in 2D, though.</div>
+<script>
+// A slow or blocked CDN must never trap a visitor behind a loading screen.
+window.setTimeout(function () {
+  var loader = document.getElementById('loader');
+  if (loader && !loader.classList.contains('dismissed')) {
+    loader.classList.add('dismissed');
+    document.getElementById('fallback-message').hidden = false;
+  }
+}, 8000);
+</script>
 <script type="module" src="./app.js"></script>
 </body>
 </html>
